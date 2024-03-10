@@ -30,6 +30,7 @@ pub enum Type {
     MasteringDisplayMetadata,
     DataSpherical,
     DataNb,
+    AmbientViewingEnvironment,
 
     ContentLightLevel,
     A53CC,
@@ -86,6 +87,8 @@ impl From<AVPacketSideDataType> for Type {
             AV_PKT_DATA_CONTENT_LIGHT_LEVEL => Type::ContentLightLevel,
             AV_PKT_DATA_A53_CC => Type::A53CC,
 
+            AV_PKT_DATA_AMBIENT_VIEWING_ENVIRONMENT => Type::AmbientViewingEnvironment,
+
             #[cfg(feature = "ffmpeg_4_0")]
             AV_PKT_DATA_ENCRYPTION_INIT_INFO => Type::EncryptionInitInfo,
             #[cfg(feature = "ffmpeg_4_0")]
@@ -106,6 +109,7 @@ impl From<AVPacketSideDataType> for Type {
 
             #[cfg(feature = "ffmpeg_5_0")]
             AV_PKT_DATA_DYNAMIC_HDR10_PLUS => Type::DYNAMIC_HDR10_PLUS,
+            
         }
     }
 }
